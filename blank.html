@@ -1,0 +1,51 @@
+<html>
+<head>
+</head>
+
+<style>
+
+*{
+	padding: 0px;
+	margin: 0px;
+}
+
+body{
+	background-color: black;
+}
+
+#canvas{
+	background-color: white;
+}
+
+</style>
+
+<body>
+
+<canvas id="canvas"></canvas>
+
+<script>
+
+var x=0,y=0;
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+
+canvas.width = window.innerWidth*0.9;
+canvas.height = window.innerHeight*0.9;
+
+canvas.addEventListener("mousemove",draw);
+
+function draw(e) {
+	ctx.beginPath();
+	ctx.lineWidth = 5;
+	ctx.moveTo(x,y);
+	ctx.lineTo(e.clientX,e.clientY);
+	ctx.stroke();
+	ctx.closePath();
+	x=e.clientX;
+	y=e.clientY;
+}
+
+
+</script>
+</body>
+</html>
